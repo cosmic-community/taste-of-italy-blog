@@ -1,4 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
+import { Author, Category, Post } from '@/types'
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.COSMIC_BUCKET_SLUG as string,
@@ -20,7 +21,7 @@ export async function getPosts() {
       .depth(1);
     
     // Manual sorting by created_at (newest first)
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: Post, b: Post) => {
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
       return dateB - dateA;
@@ -94,7 +95,7 @@ export async function getPostsByCategory(categoryId: string) {
       .depth(1);
     
     // Manual sorting by created_at (newest first)
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: Post, b: Post) => {
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
       return dateB - dateA;
@@ -151,7 +152,7 @@ export async function getPostsByAuthor(authorId: string) {
       .depth(1);
     
     // Manual sorting by created_at (newest first)
-    return response.objects.sort((a, b) => {
+    return response.objects.sort((a: Post, b: Post) => {
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
       return dateB - dateA;

@@ -6,7 +6,7 @@ import PostGrid from '@/components/PostGrid'
 
 export async function generateStaticParams() {
   const authors = await getAuthors()
-  return authors.map((author) => ({
+  return authors.map((author: Author) => ({
     slug: author.slug,
   }))
 }
