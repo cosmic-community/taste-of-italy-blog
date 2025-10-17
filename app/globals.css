@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-secondary font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .prose-custom {
+    @apply prose prose-lg max-w-none;
+  }
+  
+  .prose-custom h2 {
+    @apply text-2xl font-serif text-secondary mt-8 mb-4;
+  }
+  
+  .prose-custom h3 {
+    @apply text-xl font-serif text-secondary-light mt-6 mb-3;
+  }
+  
+  .prose-custom p {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+  
+  .prose-custom ul, .prose-custom ol {
+    @apply ml-6 mb-4;
+  }
+  
+  .prose-custom li {
+    @apply mb-2;
+  }
+  
+  .prose-custom strong {
+    @apply text-secondary font-semibold;
+  }
+  
+  .prose-custom a {
+    @apply text-accent hover:text-primary transition-colors;
+  }
+}
